@@ -1,0 +1,37 @@
+@model IEnumerable<client.Models.Book>
+
+<h2 class="mb-4">Books List</h2>
+
+<a class="btn btn-success mb-4" href="@Url.Action("Create", "Books")">Create New Book</a>
+
+<table class="table table-hover table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th>ID</th>
+      <th>Title</th>
+      <th>ISBN</th>
+      <th class="text-center">Actions</th>
+    </tr>
+  </thead>
+  <tbody>
+    @foreach (var book in Model)
+    {
+      <tr>
+        <td>@book.Id</td>
+        <td>@book.Title</td>
+        <td>@book.ISBN</td>
+        <td class="text-center">
+          <a class="btn btn-outline-primary" href="@Url.Action("Details", "Books", new { id = book.Id })">Details</a>
+          <a class="btn btn-outline-warning" href="@Url.Action("Edit", "Books", new { id = book.Id })">Edit</a>
+          <a class="btn btn-outline-danger" href="@Url.Action("Delete", "Books", new { id = book.Id })">Delete</a>
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>
+
+<style>
+  .table th {
+    text-align: center;
+  }
+</style>

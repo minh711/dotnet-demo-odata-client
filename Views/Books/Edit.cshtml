@@ -1,0 +1,33 @@
+@model client.DTOs.EditBookDto
+
+<h2 class="mb-4">Edit Book</h2>
+
+<form asp-action="Edit" asp-route-id="@Model.Id" method="post">
+  <div class="form-group">
+    <label asp-for="Title" class="control-label"></label>
+    <input asp-for="Title" class="form-control" placeholder="Enter book title" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="Author" class="control-label"></label>
+    <input asp-for="Author" class="form-control" placeholder="Enter author's name" />
+    <span asp-validation-for="Author" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="PressId" class="control-label"></label>
+    <select asp-for="PressId" asp-items="Model.Presses" class="form-control">
+      <option value="">Select a Press</option>
+    </select>
+    <span asp-validation-for="PressId" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="AddressId" class="control-label"></label>
+    <select asp-for="AddressId" asp-items="Model.Addresses" class="form-control">
+      <option value="">Select a Location</option>
+    </select>
+    <span asp-validation-for="AddressId" class="text-danger"></span>
+  </div>
+  <button type="submit" class="btn btn-success mt-3">Save</button>
+</form>
+
+<a class="btn btn-secondary mt-3" href="@Url.Action("Index", "Books")">Back to List</a>

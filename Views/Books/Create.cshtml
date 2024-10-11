@@ -1,0 +1,39 @@
+@model client.Models.Book
+
+<h2 class="mb-4">Create New Book</h2>
+
+<form asp-action="Create" method="post">
+  <div class="form-group">
+    <label asp-for="Title" class="control-label"></label>
+    <input asp-for="Title" class="form-control" />
+    <span asp-validation-for="Title" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="Author" class="control-label"></label>
+    <input asp-for="Author" class="form-control" />
+    <span asp-validation-for="Author" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="ISBN" class="control-label"></label>
+    <input asp-for="ISBN" class="form-control" />
+    <span asp-validation-for="ISBN" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="Price" class="control-label"></label>
+    <input asp-for="Price" class="form-control" />
+    <span asp-validation-for="Price" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="LocationId" class="control-label"></label>
+    <input asp-for="LocationId" class="form-control" />
+    <span asp-validation-for="LocationId" class="text-danger"></span>
+  </div>
+  <div class="form-group">
+    <label asp-for="PressId" class="control-label"></label>
+    <input asp-for="PressId" class="form-control" />
+    <span asp-validation-for="PressId" class="text-danger"></span>
+  </div>
+  <button type="submit" class="btn btn-success mt-3">Create</button>
+</form>
+
+<a class="btn btn-secondary mt-3" href="@Url.Action("Index", "Books")">Back to List</a>
